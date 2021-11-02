@@ -12912,9 +12912,10 @@ async function updateStory(storyWithEndStateId) {
         storyWithEndStateId.storyId,
         params
     );
+
     if (updatedStory.workflow_state_id !== storyWithEndStateId.endStateId) {
         throw new Error(
-            `Tranistion failed for story ${storyWithEndStateId.storyId}`
+            `Tranistion failed for story ${storyWithEndStateId.storyId} WorkFlow_state_id: ${updatedStory.workflow_state_id} storyEndStateId ${storyWithEndStateId.endStateId}`
         );
     }
     return updatedStory.name;
