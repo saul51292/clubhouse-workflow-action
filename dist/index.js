@@ -12869,7 +12869,7 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
  *
  * @param {Object} story - Clubhouse story object.
  * @param {Array} workflows - Clubhouse workflow objects.
- * @param {string} endStateName - Name of the workflow state to tranisition
+ * @param {Int} endStateName - Name of the workflow state to tranisition
  *                 stories to.
  * @return {Object} - Clubhouse story object with ID of desired workflow end state.
  */
