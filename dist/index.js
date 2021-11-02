@@ -12787,7 +12787,7 @@ async function addDetailstoStory(storyId) {
         return {
             // clubhouse represents all IDs as numbers
             storyId: story.id,
-            projectId: story.project_id,
+            workflow_id: story.workflow_id,
             name: story.name,
             description: story.description
         };
@@ -12877,7 +12877,7 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
 function addEndStateId(story, workflows, endStateName) {
     console.log("hello from index")
     console.log(`Could not locate workflow: ${workflows.map(workflow => console.log(workflow.id))}`)
-    console.log(`Could not locate workflow: ${story.workflow_id}`)
+    console.log(`Could not locate story: ${story.workflowId}`)
 
     const workflow = workflows.find(
         workflow => workflow.id === story.workflow_id
