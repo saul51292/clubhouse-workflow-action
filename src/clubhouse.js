@@ -155,7 +155,7 @@ async function updateStory(storyWithEndStateId) {
         storyWithEndStateId.storyId,
         params
     );
-    if (updatedStory.workflow_state_id !== storyWithEndStateId.endStateId) {
+    if (updatedStory.workflow_state_id != storyWithEndStateId.endStateId) {
         throw new Error(
             `Tranistion failed for story ${storyWithEndStateId.storyId}`
         );
