@@ -12876,8 +12876,8 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
 
 function addEndStateId(story, workflows, endStateName) {
     console.log("hello from index")
+    console.log(`Could not locate workflow: ${workflows}`)
     const workflow = workflows.find(
-        console.log(`Could not locate workflow: ${workflow}`)
         workflow => workflow.id === story.workflow_id
     );
     const workflowState = workflow.states.find(
