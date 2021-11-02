@@ -119,10 +119,10 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
 
 function addEndStateId(story, workflows, endStateName) {
     const workflow = workflows.find(
-        workflow => workflow.project_ids.includes(story.projectId)
+        workflow => workflow.id === story.workflow_id
     );
     const workflowState = workflow.states.find(
-        state => state.name === endStateName
+        state => state.id === endStateName
     );
     return {
         ...story,
