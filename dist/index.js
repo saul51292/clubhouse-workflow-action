@@ -12876,10 +12876,10 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
 
 function addEndStateId(story, workflows, endStateName) {
     const workflow = workflows.find(
-        workflow => workflow.project_ids.includes(story.projectId)
+        workflow => workflow.id === story.workflow_id
     );
     const workflowState = workflow.states.find(
-        state => state.name === endStateName
+        state => state.id === endStateName
     );
     return {
         ...story,
@@ -12918,7 +12918,7 @@ async function updateStory(storyWithEndStateId) {
         storyWithEndStateId.storyId,
         params
     );
-    if (updatedStory.workflow_state_id !== storyWithEndStateId.endStateId) {
+    if (updatedStory.workflow_state_id != storyWithEndStateId.endStateId) {
         throw new Error(
             `Tranistion failed for story ${storyWithEndStateId.storyId}`
         );
