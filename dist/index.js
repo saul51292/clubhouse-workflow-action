@@ -12869,7 +12869,7 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
  *
  * @param {Object} story - Clubhouse story object.
  * @param {Array} workflows - Clubhouse workflow objects.
- * @param {Int} endStateName - Name of the workflow state to tranisition
+ * @param {Int} endStateId - Name of the workflow state to tranisition
  *                 stories to.
  * @return {Object} - Clubhouse story object with ID of desired workflow end state.
  */
@@ -12887,11 +12887,11 @@ function addEndStateId(story, endStateId) {
  *
  * @param {Array} stories - Clubhouse story objects.
  * @param {Array} workflows - Clubhouse workflow objects.
- * @param {string} endStateName - Name of the workflow state to tranisition stories to.
+ * @param {Int} endStateId - Name of the workflow state to tranisition stories to.
  * @return {Object} - Clubhouse story object with ID of desired workflow end state.
  */
 
-function addEndStateIds(stories, workflows, endStateId) {
+function addEndStateIds(stories, endStateId) {
     return stories.map(story => addEndStateId(story, endStateId));
 }
 
@@ -12938,7 +12938,7 @@ async function updateStories(storiesWithEndStateIds) {
  * Updates all clubhouse stories mentioned in the body of a github release.
  *
  * @param {string} releaseBody - Body property of github release object.
- * @param {string} endStateName - Desired workflow state for stories.
+ * @param {Int} endStateId - Desired workflow state for stories.
  * @param {string} releaseUrl - URL to the triggering github release.
  * @param {boolean} shouldUpdateDescription - Whether to add release info to
  *                  descriptions.
@@ -12975,7 +12975,7 @@ async function releaseStories(
  * Updates all clubhouse stories found in given content.
  *
  * @param {string} content - a string that might have clubhouse story IDs.
- * @param {string} endStateName - Desired workflow state for stories.
+ * @param {Int} endStateId - Desired workflow state for stories.
  * @return {Promise<Array>} - Names of the stories that were updated
  */
 

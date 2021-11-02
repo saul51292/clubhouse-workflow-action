@@ -32,8 +32,8 @@ jobs:
           # Required. Auth token to use the clubhouse api for your workspace.
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
           # Optional. The clubhouse workflow state released stories should be in.
-          # default: 'Completed'.
-          endStateName: Completed
+          # default: 500014750.
+          endStateId: 500014750
           # Optional. Whether to update story descriptions with a link to the release.
           # default: false.
           addReleaseInfo: false
@@ -82,8 +82,8 @@ jobs:
           # Required. Auth token to use the clubhouse api for your workspace.
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
           # Optional. The clubhouse workflow state released stories should be in.
-          # default: 'Completed'.
-          endStateName: In Testing
+          # default: 500014750.
+          endStateId: 500014750
 ```
 
 Or alternatively, you can run the action in response to a review request.
@@ -104,6 +104,6 @@ jobs:
           # Required. Auth token to use the clubhouse api for your workspace.
           clubhouseToken: ${{ secrets.CLUBHOUSE_TOKEN }}
           # Optional. The clubhouse workflow state released stories should be in.
-          # default: 'Completed'.
-          endStateName: In Testing
+          # default: 500014750.
+          endStateId: 500014750
 ```
