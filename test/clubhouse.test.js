@@ -321,13 +321,13 @@ https://github.com/org/repo/releases/14
     describe('Adding the end workflow state id to stories', function () {
 
         it('should add expected id when end state name is "Completed"', function () {
-            const newStory = ch.addEndStateId(stories[0], workflows, "Completed");
+            const newStory = ch.addEndStateId(stories[0], 500000019);
             assert.strictEqual(newStory.endStateId, completedStateId);
         });
 
         it('should add expected id when end state name is not "Completed"', function () {
-            const newStory = ch.addEndStateId(stories[1], workflows, "Done");
-            assert.strictEqual(newStory.endStateId, doneStateId);
+            const newStory = ch.addEndStateId(stories[1], 600000019);
+            assert.strictEqual(newStory.endStateId, 600000019);
         });
 
         it('should preserve other properties of story', function () {
