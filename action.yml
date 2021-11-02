@@ -7,10 +7,10 @@ inputs:
   clubhouseToken:
     description: auth token for clubhouse api
     required: true
-  endStateName:
-    description: name of the workflow state stories should be transisitioned to
+  endStateId:
+    description: id of the workflow state stories should be transisitioned to
     required: false
-    default: Completed
+    default: 500014750
   addReleaseInfo:
     description: update story descriptions with link to github release
     required: false

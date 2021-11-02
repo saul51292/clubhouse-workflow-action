@@ -12,7 +12,7 @@ async function run() {
       const addReleaseInfo = (core.getInput('addReleaseInfo') === 'true');
       updatedStories = await ch.releaseStories(
         body,
-        core.getInput('endStateName'),
+        core.getInput('endStateId'),
         html_url,
         addReleaseInfo
       );
@@ -22,7 +22,7 @@ async function run() {
       const content = `${title} ${body} ${ref}`;
       updatedStories = await ch.transitionStories(
         content,
-        core.getInput('endStateName')
+        core.getInput('endStateId')
       );
     } else {
       throw new Error("Invalid event type");

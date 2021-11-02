@@ -117,16 +117,10 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
  * @return {Object} - Clubhouse story object with ID of desired workflow end state.
  */
 
-function addEndStateId(story, workflows, endStateName) {
-    const workflow = workflows.find(
-        workflow => workflow.project_ids.includes(story.projectId)
-    );
-    const workflowState = workflow.states.find(
-        state => state.name === endStateName
-    );
+function addEndStateId(story, endStateId) {
     return {
         ...story,
-        endStateId: workflowState.id
+        endStateId: endStateId
     };
 }
 
@@ -140,8 +134,8 @@ function addEndStateId(story, workflows, endStateName) {
  * @return {Object} - Clubhouse story object with ID of desired workflow end state.
  */
 
-function addEndStateIds(stories, workflows, endStateName) {
-    return stories.map(story => addEndStateId(story, workflows, endStateName));
+function addEndStateIds(stories, endStateId) {
+    return stories.map(story => addEndStateId(story, endStateId));
 }
 
 /**
@@ -196,7 +190,7 @@ async function updateStories(storiesWithEndStateIds) {
 
 async function releaseStories(
     releaseBody,
-    endStateName,
+    endStateId,
     releaseUrl,
     shouldUpdateDescription
 ) {
@@ -214,8 +208,7 @@ async function releaseStories(
     const workflows = await client.listWorkflows();
     const storiesWithEndStateIds = addEndStateIds(
         storiesWithUpdatedDescriptions,
-        workflows,
-        endStateName
+        endStateId
     );
     const updatedStoryNames = await updateStories(storiesWithEndStateIds);
     return updatedStoryNames;
@@ -231,7 +224,7 @@ async function releaseStories(
 
 async function transitionStories(
     content,
-    endStateName
+    endStateId
 ) {
     const storyIds = extractStoryIds(content);
     if (storyIds.length === 0) {
@@ -242,8 +235,7 @@ async function transitionStories(
     const workflows = await client.listWorkflows();
     const storiesWithEndStateIds = addEndStateIds(
         stories,
-        workflows,
-        endStateName
+        endStateId
     );
     const updatedStoryNames = await updateStories(storiesWithEndStateIds);
     return updatedStoryNames;
