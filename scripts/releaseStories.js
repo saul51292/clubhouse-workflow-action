@@ -22,7 +22,7 @@ async function releaseStories(argv) {
     if ( add_release_info !== undefined && release_url === undefined ) {
         throw new Error('When adding release info, "release_url" must be set');
     }
-    const endState = end_state !== undefined ? end_state : 'Completed';
+    const endState = end_state !== undefined ? end_state : 0;
     const addReleaseInfo = add_release_info !== undefined ? true : false;
     const releaseUrl = release_url !== undefined ? release_url : '';
     const releaseBody = fs.readFileSync(release_path, {encoding: 'utf8'});
