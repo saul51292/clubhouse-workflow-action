@@ -12894,8 +12894,8 @@ function addEndStateId(story, workflows, endStateName) {
         state => state.id === endStateName
     );
 
-    consold.log(workflowState)
-    
+    console.log(workflowState)
+
     return {
         ...story,
         endStateId: workflowState.id
