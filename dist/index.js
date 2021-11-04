@@ -12875,23 +12875,13 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
  */
 
 function addEndStateId(story, workflows, endStateName) {
-    console.log(endStateName)
-    console.log(`Could not locate story: ${story.workflow_id}`)
-    str = JSON.stringify(story, null, 4); // (Optional) beautiful indented output.
-    console.log(str)
-
     const workflow = workflows.find(
         workflow => workflow.id === story.workflow_id
     );
-    // const workflow = workflows.find(
-    //     workflow => String(workflow.id) === String(story.workflow_id)
-    // );
 
     const workflowState = workflow.states.find(
-        state => String(state.id) === String(endStateName)
+        state => String(state.id) === String(000)
     );
-
-    console.log(workflowState)
 
     return {
         ...story,
