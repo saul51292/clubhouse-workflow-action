@@ -12880,7 +12880,7 @@ function addEndStateId(story, workflows, endStateName) {
     );
 
     const workflowState = workflow.states.find(
-        state => String(state.id) === String(000)
+        state => String(state.id) === String(endStateName)
     );
 
     return {
