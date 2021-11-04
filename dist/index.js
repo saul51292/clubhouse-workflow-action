@@ -12879,10 +12879,10 @@ function addEndStateId(story, workflows, endStateName) {
     console.log(`Could not locate workflow: ${workflows.map(workflow => console.log(workflow.id))}`)
     console.log(`Could not locate story: ${story.workflow_id}`)
 
-    const workflow = workflows.find(
+    const newWorkflow = workflows.find(
         workflow => workflow.id == story.workflow_id
     );
-    const workflowState = workflow.states.find(
+    const workflowState = newWorkflow.states.find(
         state => state.id === endStateName
     );
     return {
