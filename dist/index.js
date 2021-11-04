@@ -12883,17 +12883,17 @@ function addEndStateId(story, workflows, endStateName) {
     console.log(newWorkflow)
 
     const workflow = workflows.find(
-        workflow => workflow.id == story.workflow_id
+        workflow => workflow.id == 500000005
     );
     // const workflow = workflows.find(
     //     workflow => String(workflow.id) === String(story.workflow_id)
     // );
-    // const workflowState = workflow.states.find(
-    //     state => state.id === endStateName
-    // );
+    const workflowState = workflow.states.find(
+        state => state.id === endStateName
+    );
     return {
         ...story,
-        endStateId: 500000005
+        endStateId: workflowState.id
     };
 }
 
