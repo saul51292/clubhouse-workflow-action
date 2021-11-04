@@ -12887,9 +12887,9 @@ function addEndStateId(story, workflows, endStateName) {
     //     workflow => String(workflow.id) === String(story.workflow_id)
     // );
 
-    newWorkflow = JSON.stringify(workflow, null, 4); // (Optional) beautiful indented output.
+    newWorkflow = JSON.stringify(workflow.states, null, 4); // (Optional) beautiful indented output.
     console.log(newWorkflow)
-
+    
     const workflowState = workflow.states.find(
         state => state.id === endStateName
     );
