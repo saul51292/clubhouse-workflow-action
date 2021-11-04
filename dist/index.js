@@ -12876,6 +12876,8 @@ function updateDescriptionsMaybe(stories, releaseUrl, shouldUpdateDescription) {
 
 function addEndStateId(story, workflows, endStateName) {
     console.log(`Could not locate story: ${story.workflow_id}`)
+    str = JSON.stringify(workflows, null, 4); // (Optional) beautiful indented output.
+    console.log(str)
     const workflow = workflows.find(
         workflow => workflow.id == story.workflow_id
     );
@@ -13002,7 +13004,7 @@ async function transitionStories(
     const stories = await addDetailstoStories(storyIds);
     const workflows = await client.listWorkflows();
     console.log(workflows[0].id)
-    const storiesWithEndStateIds = await addEndStateIds(
+    const storiesWithEndStateIds = addEndStateIds(
         stories,
         workflows,
         endStateName
