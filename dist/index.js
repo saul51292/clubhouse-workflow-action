@@ -12971,7 +12971,6 @@ async function releaseStories(
         shouldUpdateDescription
     );
     const workflows = await client.listWorkflows();
-    console.log(workflows[0].id)
     const storiesWithEndStateIds = addEndStateIds(
         storiesWithUpdatedDescriptions,
         workflows,
@@ -13000,6 +12999,7 @@ async function transitionStories(
     }
     const stories = await addDetailstoStories(storyIds);
     const workflows = await client.listWorkflows();
+    console.log(workflows[0].id)
     const storiesWithEndStateIds = addEndStateIds(
         stories,
         workflows,
