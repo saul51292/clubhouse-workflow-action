@@ -12878,7 +12878,16 @@ function addEndStateId(story, workflows, endStateName) {
     const workflow = workflows.find(
         workflow => workflow.id === story.workflow_id
     );
-    
+
+    blah = JSON.stringify(workflows, null, 4); // (Optional) beautiful indented output.
+    console.log(blah)
+
+    str = JSON.stringify(story, null, 4); // (Optional) beautiful indented output.
+    console.log(str)
+
+    strw = JSON.stringify(workflow[0].states, null, 4); // (Optional) beautiful indented output.
+    console.log(strw)
+
     const workflowState = workflow.states.find(
         state => String(state.id) === String(endStateName)
     );
@@ -12999,7 +13008,6 @@ async function transitionStories(
     }
     const stories = await addDetailstoStories(storyIds);
     const workflows = await client.listWorkflows();
-    console.log(workflows[0].id)
     const storiesWithEndStateIds = addEndStateIds(
         stories,
         workflows,
